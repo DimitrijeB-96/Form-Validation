@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign-up Form Validation</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <form>
+      <!-- This form should have live validation -->
+      <div>
+        <h2>Sign up</h2>
+      </div>
+      <div class="email-container">
+        <input id="email" type="email" placeholder="" autocomplete="none">
+        <label for="email">Email</label>
+      </div>
+      <div class="country-container">
+        <input id="country" type="text" placeholder="" autocomplete="none">
+        <label for="country">Country</label>
+      </div>
+      <div class="zip-container">
+        <input id="zip" type="tel" placeholder="" autocomplete="none">
+        <label for="zip">Zip Code</label>
+      </div>
+      <div class="password-container">
+        <input id="password" type="password" placeholder="" autocomplete="none">
+        <label for="password">Password</label>
+      </div>
+      <div class="password-confirm-container">
+        <input id="confirm" type="password" placeholder="" autocomplete="none">
+        <label for="confirm">Confirm password</label>
+      </div>
+      
+      <button>Submit</button>
+      <!-- When submit add new window to add popup message -->
+    </form>
+  </div>
+  <script src="index.js"></script>
+</body>
+</html>
