@@ -43,7 +43,10 @@ form.addEventListener('submit', (e) => {
     isValid = false;
   }
   
-  if (confirmInput.value === '' || (confirmInput.value !== passwordInput.value)) {
+  if (confirmInput.value === '') {
+    invalidField(confirmInput, confirmError);
+    isValid = false;
+  } else if (confirmInput.value !== passwordInput.value) {
     invalidField(confirmInput);
     confirmError.textContent = "Password doesn't match.";
     isValid = false;
