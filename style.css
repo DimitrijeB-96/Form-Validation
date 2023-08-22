@@ -6,6 +6,8 @@
   --blue-600: #2563eb;
   --blue-900: #1e3a8a;
   --blue-950: #172554;
+
+  --red-400: #f87171;
 }
 
 * {
@@ -53,7 +55,7 @@ form {
   border-radius: 16px;
 }
 
-h2 {
+form h2 {
   font-size: 2.5em;
 
   text-align: center;
@@ -73,7 +75,7 @@ h2 {
   width: 90%;
 }
 
-label {
+form label {
   position: absolute;
   
   font-family: 'Roboto', Arial, Helvetica, sans-serif;
@@ -86,13 +88,15 @@ label {
 
   left: 0.8em;
   top: 0.32em;
+
+  border-radius: 4px;
   
   transition: 0.25s ease-in-out;
 
   pointer-events: none;
 }
 
-input {
+form input {
   position: absolute;
 
   font-family: 'Roboto', Arial, Helvetica, sans-serif;
@@ -104,7 +108,7 @@ input {
   height: 100%;
   width: 100%;
 
-  background: none;
+  background: none !important;
   border: 2px solid var(--blue-500);
 
   border-radius: 8px;
@@ -132,7 +136,15 @@ input:not(:placeholder-shown) {
   border: 2px solid var(--blue-50);
 }
 
-button {
+input:invalid {
+  border: 2px solid var(--red-400);
+}
+
+input:invalid + label{
+  color: var(--red-400);
+}
+
+form button {
   width: 120px;
   height: 50px;
 
@@ -153,4 +165,91 @@ button {
 button:hover,
 button:focus {
   background: var(--blue-600);
+}
+
+.error-message {
+  position: absolute;
+  top: 2.5em;
+  right: 0.2em;
+
+  color: var(--red-400);
+}
+
+.not-valid-label {
+  color: var(--red-400) !important;
+}
+
+.not-valid-input {
+  border-color: var(--red-400) !important;
+}
+
+.black-background {
+  position: absolute;
+
+  left: 0;
+  top: 0;
+
+  height: 100vh;
+  width: 100vw;
+
+  background: var(--blue-950);
+  opacity: 0.5;
+
+  z-index: 50;
+}
+
+.congratulation {
+  position: absolute;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  left: 50%;
+  top: 50%;
+
+  margin-top: -100px;
+  margin-left: -200px;
+
+  height: 180px;
+  width: 400px;
+
+  border-radius: 16px;
+  background: var(--blue-50);
+
+  z-index: 100;
+}
+
+.congratulation h2 {
+  font-size: 2.5em;
+  font-weight: 700;
+
+  color: var(--blue-500);
+}
+
+.congratulation p {
+  font-weight: 1em;
+
+  color: var(--blue-900);
+}
+
+.congratulation button {
+  font-size: 1em;
+  font-weight: 700;
+
+  height: 38px;
+  width: 42px;
+
+  border: 2px solid var(--blue-500);
+  border-radius: 8px;
+  background: var(--blue-500);
+
+  color: var(--blue-50);
+}
+
+.congratulation button:hover {
+  background: var(--blue-50);
+  color: var(--blue-500);
 }

@@ -3,39 +3,48 @@
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
   <title>Sign-up Form Validation</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="container">
-    <form>
-      <!-- This form should have live validation -->
+    <form id="form" novalidate autocomplete="off">
       <div>
         <h2>Sign up</h2>
       </div>
       <div class="email-container">
-        <input id="email" type="email" placeholder="" autocomplete="none">
+        <!-- No pattern for email, just default -->
+        <input id="email" type="email" name="email" placeholder="" autocomplete="new-password">
         <label for="email">Email</label>
+        <span class="email-error error-message"></span>
       </div>
       <div class="country-container">
-        <input id="country" type="text" placeholder="" autocomplete="none">
+        <!-- Country name must start with uppercase letter and minimum is 2 characters, maximum is 25 characters and can containe whitespace -->
+        <input id="country" type="text" name="country" placeholder="" autocomplete="new-password" pattern="^[A-Z][\w\s]+" minlength="3" maxlength="25">
         <label for="country">Country</label>
+        <span class="country-error error-message"></span>
       </div>
       <div class="zip-container">
-        <input id="zip" type="tel" placeholder="" autocomplete="none">
+        <!-- Zip is basic contains only digits with length of 5, used maxlength to limit amount of inputs to 5 -->
+        <input id="zip" type="tel" name="zip" placeholder="" autocomplete="new-password" pattern="[0-9]{5}" min="5" maxlength="5">
         <label for="zip">Zip Code</label>
+        <span class="zip-error error-message"></span>
       </div>
       <div class="password-container">
-        <input id="password" type="password" placeholder="" autocomplete="none">
+        <!-- Password is more complex, must contain uppercase letter, symbol and digit, min length is 8 and max is 20 -->
+        <input id="password" type="password" name="password" placeholder="" autocomplete="new-password" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,20}$" min="8" maxlength="20">
         <label for="password">Password</label>
+        <span class="password-error error-message"></span>
       </div>
       <div class="password-confirm-container">
-        <input id="confirm" type="password" placeholder="" autocomplete="none">
+        <!-- Password is more complex, must contain uppercase letter, symbol and digit, min length is 8 and max is 20 -->
+        <input id="confirm" type="password" name="confirm" placeholder="" autocomplete="new-password" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,20}$">
         <label for="confirm">Confirm password</label>
+        <span class="confirm-error error-message"></span>
       </div>
       
-      <button>Submit</button>
+      <button class="btn">Submit</button>
       <!-- When submit add new window to add popup message -->
     </form>
   </div>
